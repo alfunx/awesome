@@ -93,7 +93,9 @@ end
 --  for this screen should be re-activated.
 function screen.focus(_screen)
     client = client or require("awful.client")
-    if type(_screen) == "number" and _screen > capi.screen.count() then _screen = screen.focused() end
+    if not _screen or type(_screen) == "number" and _screen > capi.screen.count() then
+        _screen = screen.focused()
+    end
     _screen = get_screen(_screen)
 
     -- screen and pos for current screen
