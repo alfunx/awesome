@@ -326,7 +326,7 @@ local function get_cal_wibox(caltype, args)
         week_numbers  = args.week_numbers,
         start_sunday  = args.start_sunday,
         long_weekdays = args.long_weekdays,
-        fn_embed      = embed(parse_all_options(args)),
+        fn_embed      = args.fn_embed or embed(parse_all_options(args)),
         _calendar_margin = args.margin,
         widget = caltype == "year" and wibox.widget.calendar.year or wibox.widget.calendar.month
     }
